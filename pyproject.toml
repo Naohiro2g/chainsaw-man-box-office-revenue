@@ -1,0 +1,19 @@
+[project]
+name = "chainsaw-man-box-office-revenue"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Naohiro2g",email = "587586+Naohiro2g@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib (>=3.10.8,<4.0.0)",
+    "scipy (>=1.17.0,<2.0.0)",
+    "ipykernel (>=7.1.0,<8.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
