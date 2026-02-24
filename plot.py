@@ -16,11 +16,13 @@ from scipy.optimize import curve_fit
 FILE_NAME = "./chainsaw-man-box-office-revenue-forecast.png"
 
 # 日本語フォント
-plt.rcParams["font.family"] = "Noto Sans CJK JP"
+# plt.rcParams["font.family"] = "Noto Sans CJK JP"
+# plt.rcParams["font.family"] = "Natsume"
+plt.rcParams["font.family"] = "Keifont"
 
 GRAPF_TITLE = "劇場版 チェンソーマン レゼ篇 興行収入推移と予測（ゴールデンウィーク開けまでの指数減衰モデル）"
 
-# 2026年2月26日（木）（公開33週、231日）までプロット
+# 2026年5月7日（木）（公開33週、231日）までプロット
 MAX_DAY = 230
 
 # ターゲットライン
@@ -44,7 +46,8 @@ days = np.array(
         38, 42, 46, 52,
         59, 73, 80, 88,
         95, 102, 108, 116,
-        122, 129, 136, 143
+        122, 129, 136, 143,
+        150, 158
     ]
 )
 revenue = np.array(
@@ -54,7 +57,8 @@ revenue = np.array(
         71.7, 73.8, 79, 83.1,
         87.7, 92.8, 94.9, 96.2,
         98, 99.5, 101.5, 102.8,
-        103.7, 104.3, 105.1, 105.6
+        103.7, 104.3, 105.1, 105.6,
+        106, 106.3
     ]
 )
 
@@ -95,9 +99,9 @@ dates_fit = np.array([release_date + timedelta(days=float(d)) for d in x_fit])
 # プロット
 fig, ax = plt.subplots(figsize=(8, 8))
 
-# 凡例位置（調整可能）
+# 凡例位置
 LEGEND_LOC = "upper right"
-LEGEND_BBOX = (0.9875, 0.897)
+LEGEND_BBOX = (0.983, 0.895)
 LEGEND_NCOL = 1
 
 # 枠線（spines）と目盛線を太くする
@@ -122,11 +126,11 @@ for d, r, day in zip(dates, revenue, days):
     ax.annotate(
         f"{day}日",
         xy=(d, r),
-        xytext=(3, -8),
+        xytext=(6, -10),
         textcoords="offset points",
-        fontsize=10,
+        fontsize=11,
         ha="left",
-        rotation=-45,
+        rotation=-35,
         weight="bold",
         rotation_mode="anchor",
     )
